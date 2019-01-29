@@ -160,6 +160,10 @@ public class ClasspathScanner
                     bundles.add(new BundleDescriptor(loader, getParentURL(manifestURL).toExternalForm(), headers));
                 }
             }
+            catch (Exception se) {
+                // could not parse manifest
+                System.err.println("Exception in [" + manifestURL + "]: " + se);
+            }
             finally
             {
                 if (input != null)
